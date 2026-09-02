@@ -1,0 +1,15 @@
+.cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.product-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.price {
+  font-size: 19px;
+  font-weight: 800;
+  margin-top: 4px;
+}

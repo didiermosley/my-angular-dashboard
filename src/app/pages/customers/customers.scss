@@ -1,0 +1,7 @@
+.cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.cols-customers .row {
+  grid-template-columns: 2fr 2.2fr 1fr 1fr 1fr;
+}

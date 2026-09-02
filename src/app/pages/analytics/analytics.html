@@ -1,0 +1,40 @@
+<section class="stat-grid cols-4">
+  @for (s of stats; track s.label) {
+    <div class="stat-card">
+      <div class="label">{{ s.label }}</div>
+      <div class="value">{{ s.value }}</div>
+      <div class="delta" [style.color]="s.deltaColor">{{ s.delta }}</div>
+    </div>
+  }
+</section>
+
+<section class="split">
+  <div class="panel">
+    <div class="panel-title">Revenue, last 7 days</div>
+    <div class="bars">
+      @for (b of weeklyBars; track b.label) {
+        <div class="bar-col">
+          <div class="bar-label">{{ b.label }}</div>
+          <div class="bar" [style.height]="b.height"></div>
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Top channels</div>
+    <div class="channels">
+      @for (c of channels; track c.name) {
+        <div>
+          <div class="channel-row">
+            <span>{{ c.name }}</span>
+            <span class="pct">{{ c.pct }}</span>
+          </div>
+          <div class="track">
+            <div class="fill" [style.width]="c.pct"></div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

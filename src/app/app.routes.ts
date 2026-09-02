@@ -6,10 +6,13 @@ export const routes: Routes = [
     path: '',
     component: Layout,
     children: [
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-      { path: 'dashboard', loadComponent: () => import('./pages/dashboard/dashboard').then((m) => m.Dashboard) },
+      { path: '', redirectTo: 'analytics', pathMatch: 'full' },
+      { path: 'analytics', loadComponent: () => import('./pages/analytics/analytics').then((m) => m.Analytics) },
+      { path: 'customers', loadComponent: () => import('./pages/customers/customers').then((m) => m.Customers) },
+      { path: 'orders', loadComponent: () => import('./pages/orders/orders').then((m) => m.Orders) },
+      { path: 'products', loadComponent: () => import('./pages/products/products').then((m) => m.Products) },
       { path: 'reports', loadComponent: () => import('./pages/reports/reports').then((m) => m.Reports) },
-      { path: 'settings', loadComponent: () => import('./pages/settings/settings').then((m) => m.Settings) },
+      { path: 'team', loadComponent: () => import('./pages/team/team').then((m) => m.Team) },
     ],
   },
 ];

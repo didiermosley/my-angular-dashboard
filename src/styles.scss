@@ -1,1 +1,98 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #eef0f4;
+  font-family: 'Manrope', sans-serif;
+  color: #111827;
+}
+
+// Shared dashboard building blocks
+
+.stat-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.stat-card {
+  background: #fafafb;
+  border-radius: 16px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .label {
+    font-size: 12.5px;
+    color: #6b7280;
+    font-weight: 600;
+  }
+
+  .value {
+    font-size: 24px;
+    font-weight: 800;
+  }
+
+  .delta {
+    font-size: 12.5px;
+    font-weight: 700;
+  }
+}
+
+.panel {
+  background: #fafafb;
+  border-radius: 16px;
+  padding: 22px 24px;
+}
+
+.badge {
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.data-table {
+  border: 1px solid #f0f1f4;
+  border-radius: 16px;
+  overflow: hidden;
+
+  .row {
+    display: grid;
+    padding: 14px 20px;
+    font-size: 13.5px;
+    align-items: center;
+    border-top: 1px solid #f5f5f6;
+
+    &.head {
+      padding: 12px 20px;
+      background: #fafafb;
+      font-size: 12px;
+      font-weight: 700;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      border-top: none;
+    }
+  }
+}
+
+.card-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.strong {
+  font-weight: 700;
+  color: #111827;
+}
+
+.muted {
+  color: #6b7280;
+}
+
+.faint {
+  color: #9ca3af;
+}

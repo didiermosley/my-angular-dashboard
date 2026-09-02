@@ -1,0 +1,21 @@
+<section class="stat-grid cols-3">
+  @for (s of stats; track s.label) {
+    <div class="stat-card">
+      <div class="label">{{ s.label }}</div>
+      <div class="value">{{ s.value }}</div>
+    </div>
+  }
+</section>
+
+<section class="card-grid cols-3">
+  @for (p of rows; track p.sku) {
+    <div class="stat-card product-card">
+      <div class="product-head">
+        <div class="strong">{{ p.name }}</div>
+        <span class="badge" [style.background]="p.stockBg" [style.color]="p.stockColor">{{ p.stockLabel }}</span>
+      </div>
+      <div class="faint">SKU {{ p.sku }}</div>
+      <div class="price">{{ p.price }}</div>
+    </div>
+  }
+</section>

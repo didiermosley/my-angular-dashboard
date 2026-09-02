@@ -1,0 +1,12 @@
+<section class="card-grid cols-3">
+  @for (m of rows; track m.email) {
+    <div class="stat-card member-card">
+      <div class="avatar">{{ m.initials }}</div>
+      <div>
+        <div class="strong">{{ m.name }}</div>
+        <div class="muted">{{ m.role }}</div>
+      </div>
+      <div class="faint">{{ m.email }}</div>
+    </div>
+  }
+</section>

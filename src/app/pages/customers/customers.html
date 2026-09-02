@@ -1,0 +1,27 @@
+<section class="stat-grid cols-3">
+  @for (s of stats; track s.label) {
+    <div class="stat-card">
+      <div class="label">{{ s.label }}</div>
+      <div class="value">{{ s.value }}</div>
+    </div>
+  }
+</section>
+
+<div class="data-table cols-customers">
+  <div class="row head">
+    <div>Name</div>
+    <div>Email</div>
+    <div>Plan</div>
+    <div>Status</div>
+    <div>Joined</div>
+  </div>
+  @for (r of rows; track r.email) {
+    <div class="row">
+      <div class="strong">{{ r.name }}</div>
+      <div class="muted">{{ r.email }}</div>
+      <div>{{ r.plan }}</div>
+      <div><span class="badge" [style.background]="r.statusBg" [style.color]="r.statusColor">{{ r.status }}</span></div>
+      <div class="faint">{{ r.joined }}</div>
+    </div>
+  }
+</div>

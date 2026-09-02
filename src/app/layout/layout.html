@@ -1,13 +1,44 @@
 <div class="shell">
   <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">O</div>
+      <div class="brand-name">Orbital</div>
+    </div>
+
     <nav>
       @for (item of navItems; track item.path) {
-        <a [routerLink]="item.path" routerLinkActive="active">{{ item.label }}</a>
+        <a [routerLink]="item.path" routerLinkActive="active">
+          <app-nav-icon [name]="item.path" />
+          {{ item.label }}
+        </a>
       }
     </nav>
+
+    <div class="spacer"></div>
+
+    <div class="profile">
+      <div class="avatar">JC</div>
+      <div>
+        <div class="name">Jordan Cole</div>
+        <div class="role">Admin</div>
+      </div>
+    </div>
   </aside>
 
   <main class="content">
+    <header>
+      <div>
+        <div class="title">{{ active().label }}</div>
+        <div class="subtitle">{{ active().subtitle }}</div>
+      </div>
+      <div class="bell">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#4B5563" stroke-width="2">
+          <path d="M18 8a6 6 0 10-12 0c0 3-1.2 4.5-2 5.5h16c-.8-1-2-2.5-2-5.5z" />
+          <path d="M9.5 17a2.5 2.5 0 005 0" />
+        </svg>
+      </div>
+    </header>
+
     <router-outlet />
   </main>
 </div>
