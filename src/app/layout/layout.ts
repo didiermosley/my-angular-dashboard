@@ -1,11 +1,12 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { filter, map, startWith } from 'rxjs';
 import { NAV_ITEMS } from './nav-items';
 import { NavIcon } from './nav-icon';
+import { THEMES, ThemeService } from '../theme/theme';
 
-// Shell: sidebar navigation + routed content area
+// Shell: sidebar navigation (off-canvas drawer on mobile) + routed content area
 @Component({
   selector: 'app-layout',
   imports: [RouterLink, RouterLinkActive, RouterOutlet, NavIcon],
@@ -16,6 +17,12 @@ export class Layout {
   private router = inject(Router);
 
   protected navItems = NAV_ITEMS;
+  protected theme = inject(ThemeService);
+  protected paletteAccent = (name: string) => THEMES[name as keyof typeof THEMES].accent;
+
+  protected drawerOpen = signal(false);
+  protected openDrawer = () => this.drawerOpen.set(true);
+  protected closeDrawer = () => this.drawerOpen.set(false);
 
   private url = toSignal(
     this.router.events.pipe(

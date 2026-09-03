@@ -1,13 +1,22 @@
 <div class="shell">
-  <aside class="sidebar">
+  @if (drawerOpen()) {
+    <div class="backdrop" (click)="closeDrawer()"></div>
+  }
+
+  <aside class="sidebar" [class.open]="drawerOpen()">
     <div class="brand">
       <div class="brand-mark">O</div>
       <div class="brand-name">Orbital</div>
+      <button class="drawer-close" (click)="closeDrawer()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
     </div>
 
     <nav>
       @for (item of navItems; track item.path) {
-        <a [routerLink]="item.path" routerLinkActive="active">
+        <a [routerLink]="item.path" routerLinkActive="active" (click)="closeDrawer()">
           <app-nav-icon [name]="item.path" />
           {{ item.label }}
         </a>
@@ -15,6 +24,20 @@
     </nav>
 
     <div class="spacer"></div>
+
+    <div class="theme-picker">
+      <div class="theme-label">Theme</div>
+      <div class="swatches">
+        @for (name of theme.names; track name) {
+          <button
+            class="swatch"
+            [class.active]="theme.current() === name"
+            [style.background]="paletteAccent(name)"
+            (click)="theme.set(name)"
+          ></button>
+        }
+      </div>
+    </div>
 
     <div class="profile">
       <div class="avatar">JC</div>
@@ -27,9 +50,16 @@
 
   <main class="content">
     <header>
-      <div>
-        <div class="title">{{ active().label }}</div>
-        <div class="subtitle">{{ active().subtitle }}</div>
+      <div class="header-left">
+        <button class="hamburger" (click)="openDrawer()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </button>
+        <div>
+          <div class="title">{{ active().label }}</div>
+          <div class="subtitle">{{ active().subtitle }}</div>
+        </div>
       </div>
       <div class="bell">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#4B5563" stroke-width="2">

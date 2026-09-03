@@ -22,6 +22,18 @@
   </div>
 
   <div class="panel">
+    <div class="panel-title">Top pages</div>
+    <div class="pages">
+      @for (p of topPages; track p.path) {
+        <div class="page-row">
+          <span>{{ p.path }}</span>
+          <span class="views">{{ p.views }}</span>
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="panel">
     <div class="panel-title">Top channels</div>
     <div class="channels">
       @for (c of channels; track c.name) {

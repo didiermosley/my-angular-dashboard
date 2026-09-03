@@ -23,6 +23,13 @@ export class Analytics {
     { label: 'Sun', height: '40%' },
   ];
 
+  protected topPages = [
+    { path: '/pricing', views: '9,410' },
+    { path: '/features', views: '7,238' },
+    { path: '/blog/inventory', views: '4,102' },
+    { path: '/signup', views: '3,655' },
+  ];
+
   protected channels = [
     { name: 'Organic search', pct: '42%' },
     { name: 'Direct', pct: '27%' },

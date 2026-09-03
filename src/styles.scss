@@ -1,3 +1,9 @@
+:root {
+  --accent: #4f46e5;
+  --soft: #eef0ff;
+  --canvas: #f6f7ff;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -14,6 +20,21 @@ body {
 .stat-grid {
   display: grid;
   gap: 16px;
+}
+
+.cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 720px) {
+  .cols-3,
+  .cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .stat-card {
@@ -75,6 +96,17 @@ body {
       text-transform: uppercase;
       letter-spacing: 0.03em;
       border-top: none;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .row.head {
+      display: none;
+    }
+
+    .row {
+      grid-template-columns: 1fr !important;
+      gap: 4px;
     }
   }
 }
