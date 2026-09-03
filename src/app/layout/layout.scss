@@ -1,6 +1,6 @@
 .shell {
   min-height: 100vh;
-  padding: 20px;
+  padding: 20px 20px 20px 0;
   background: #e3e5ec;
   display: flex;
   gap: 20px;
@@ -14,7 +14,8 @@
   width: 240px;
   flex-shrink: 0;
   background: var(--soft);
-  border-radius: 20px;
+  border-radius: 0 20px 20px 0;
+  box-shadow: 4px 0 24px rgba(16, 24, 40, 0.06);
   padding: 20px 14px;
   display: flex;
   flex-direction: column;
@@ -68,6 +69,7 @@
     font-weight: 600;
     color: #374151;
     text-decoration: none;
+    transition: background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
 
     &:hover {
       background: #f3f4f6;
@@ -77,6 +79,7 @@
       background: #fff;
       color: var(--accent);
       font-weight: 700;
+      box-shadow: 0 1px 3px rgba(16, 24, 40, 0.08);
     }
   }
 
@@ -110,6 +113,11 @@
       border: none;
       cursor: pointer;
       padding: 0;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+      &:hover {
+        transform: scale(1.12);
+      }
 
       &.active {
         box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--accent);
@@ -191,6 +199,11 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    transition: background-color 0.15s ease;
+
+    &:hover {
+      background: #e5e7eb;
+    }
   }
 }
 
@@ -213,16 +226,24 @@
     inset: 0;
     background: rgba(17, 24, 39, 0.42);
     z-index: 70;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+
+    &.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
   }
 
   .sidebar {
     position: fixed;
-    top: 12px;
-    bottom: 12px;
-    left: 12px;
+    top: 0;
+    bottom: 0;
+    left: 0;
     width: 260px;
     z-index: 80;
-    transform: translateX(-115%);
+    transform: translateX(-105%);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 14px 0 40px rgba(16, 24, 40, 0.18);
 

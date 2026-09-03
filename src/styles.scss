@@ -15,6 +15,32 @@ body {
   color: #111827;
 }
 
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #d6d9e0 transparent;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d6d9e0;
+  border-radius: 8px;
+}
+
 // Shared dashboard building blocks
 
 .stat-grid {
@@ -44,6 +70,11 @@ body {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  transition: box-shadow 0.15s ease;
+
+  &:hover {
+    box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
+  }
 
   .label {
     font-size: 12.5px;
@@ -96,6 +127,14 @@ body {
       text-transform: uppercase;
       letter-spacing: 0.03em;
       border-top: none;
+    }
+
+    &:not(.head) {
+      transition: background-color 0.15s ease;
+
+      &:hover {
+        background: #fafbff;
+      }
     }
   }
 

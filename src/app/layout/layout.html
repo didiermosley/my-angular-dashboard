@@ -1,7 +1,5 @@
 <div class="shell">
-  @if (drawerOpen()) {
-    <div class="backdrop" (click)="closeDrawer()"></div>
-  }
+  <div class="backdrop" [class.open]="drawerOpen()" (click)="closeDrawer()"></div>
 
   <aside class="sidebar" [class.open]="drawerOpen()">
     <div class="brand">
