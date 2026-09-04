@@ -1,6 +1,6 @@
 .shell {
-  min-height: 100vh;
-  padding: 20px 20px 20px 0;
+  height: 100vh;
+  padding: 20px;
   background: #e3e5ec;
   display: flex;
   gap: 20px;
@@ -14,7 +14,7 @@
   width: 240px;
   flex-shrink: 0;
   background: var(--soft);
-  border-radius: 0 20px 20px 0;
+  border-radius: 20px;
   box-shadow: 4px 0 24px rgba(16, 24, 40, 0.06);
   padding: 20px 14px;
   display: flex;
@@ -161,16 +161,40 @@
 .content {
   flex: 1;
   min-width: 0;
+  height: 100%;
   background: var(--canvas);
   border-radius: 20px;
   overflow: hidden;
 }
 
 .scroll {
+  height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   display: flex;
   flex-direction: column;
   gap: 28px;
   padding: 32px 36px;
+
+  scrollbar-width: thin;
+  scrollbar-color: rgba(17, 24, 39, 0.16) transparent;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(17, 24, 39, 0.16);
+    border-radius: 8px;
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(17, 24, 39, 0.28);
+  }
 }
 
 .desktop-bar {
@@ -242,6 +266,7 @@
     bottom: 0;
     left: 0;
     width: 260px;
+    border-radius: 0 20px 20px 0;
     z-index: 80;
     transform: translateX(-105%);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -270,14 +295,7 @@
     }
   }
 
-  .content {
-    height: calc(100vh - 24px);
-  }
-
   .scroll {
-    height: 100%;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
     padding: 0 14px 20px;
     gap: 16px;
   }
